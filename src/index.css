@@ -1,0 +1,128 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 15% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 260 15% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 260 15% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 267 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 15% 10%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 260 10% 20%;
+    --muted-foreground: 260 5% 65%;
+
+    --accent: 267 80% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 260 15% 15%;
+    --input: 260 15% 15%;
+    --ring: 267 100% 60%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-loopify-darker text-foreground;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-loopify-darker;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-loopify-muted/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-loopify-muted/50;
+  }
+}
+
+@layer components {
+  .sidebar-icon {
+    @apply h-5 w-5 mr-3;
+  }
+
+  .sidebar-item {
+    @apply flex items-center px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-md transition-colors;
+  }
+
+  .sidebar-item-active {
+    @apply bg-white/10 text-white;
+  }
+
+  .player-button {
+    @apply h-9 w-9 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors;
+  }
+
+  .progress-bar {
+    @apply h-1 rounded-full bg-white/20 relative overflow-hidden cursor-pointer;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-white absolute top-0 left-0 transition-all;
+  }
+
+  .progress-bar-hover {
+    @apply h-2 bg-loopify-purple opacity-0 absolute top-[-2px] left-0 transition-opacity rounded-full;
+  }
+
+  /* Progress container with group hover effect */
+  .progress-container {
+    position: relative;
+  }
+
+  .progress-container .progress-bar-hover {
+    @apply group-hover:opacity-100;
+  }
+
+  .playlist-card {
+    @apply bg-loopify-card rounded-xl overflow-hidden hover:bg-white/10 transition-colors duration-300 cursor-pointer;
+  }
+
+  .album-card {
+    @apply bg-loopify-card rounded-xl overflow-hidden hover:bg-white/10 transition-colors duration-300 cursor-pointer flex flex-col;
+  }
+
+  .artist-card {
+    @apply flex flex-col items-center text-center;
+  }
+
+  .playlist-cover {
+    @apply aspect-square object-cover w-full;
+  }
+
+  .album-cover {
+    @apply aspect-square object-cover w-full;
+  }
+
+  .artist-avatar {
+    @apply rounded-full aspect-square object-cover w-full;
+  }
+}
